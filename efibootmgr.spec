@@ -12,6 +12,7 @@ Patch1:		efibootmgr-0.5.2.2-u64.patch
 Patch2:		efibootmgr-linux_types.h.diff
 BuildRequires:	pciutils-devel
 ExclusiveArch:	%{ix86} ia64
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 This is efibootmgr, a Linux user-space application to modify the Intel
