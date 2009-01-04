@@ -6,7 +6,7 @@ License:	GPL
 Group:		System/Kernel and hardware
 URL:		http://domsch.com/linux/ia64/efibootmgr
 Source0:	%{name}-%{version}.tar.bz2
-BuildRequires:	pciutils-devel
+BuildRequires:	pciutils-devel zlib-devel
 ExclusiveArch:	%{ix86} ia64
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
