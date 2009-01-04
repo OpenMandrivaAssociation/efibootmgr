@@ -1,15 +1,11 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	0.5.3
-Release:	%mkrel 4
+Version:	0.5.4
+Release:	%mkrel 1
 License:	GPL
 Group:		System/Kernel and hardware
 URL:		http://domsch.com/linux/ia64/efibootmgr
 Source0:	%{name}-%{version}.tar.bz2
-Patch0:		efibootmgr-0.5.2.2-makefile.patch
-# XXX kernel-headers will be fixed
-Patch1:		efibootmgr-0.5.2.2-u64.patch
-Patch2:		efibootmgr-linux_types.h.diff
 BuildRequires:	pciutils-devel
 ExclusiveArch:	%{ix86} ia64
 BuildRoot:	%{_tmppath}/%{name}-buildroot
@@ -29,9 +25,6 @@ prior to use.  `modprobe efivars` should do the trick.
 %prep
 
 %setup -q
-%patch0 -p1 -b .makefile
-%patch1 -p1 -b .u64
-%patch2 -p0
 
 %build
 make
