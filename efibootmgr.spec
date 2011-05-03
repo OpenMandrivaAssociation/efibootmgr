@@ -1,7 +1,7 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
 Version:	0.5.4
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPL
 Group:		System/Kernel and hardware
 URL:		http://domsch.com/linux/ia64/efibootmgr
