@@ -1,0 +1,32 @@
+--- efibootmgr-0.5.4/src/lib/efi.c.bero	2012-12-20 14:05:58.562868721 +0100
++++ efibootmgr-0.5.4/src/lib/efi.c	2012-12-20 14:08:00.564399050 +0100
+@@ -75,6 +75,7 @@ set_fs_kernel_calls()
+ {
+ 	char name[PATH_MAX];
+ 	DIR *dir;
++	static int efivars_loaded = 0;
+ 	snprintf(name, PATH_MAX, "%s", SYSFS_DIR_EFI_VARS);
+ 	dir = opendir(name);
+ 	if (dir) {
+@@ -90,9 +91,18 @@ set_fs_kernel_calls()
+ 		fs_kernel_calls = &procfs_kernel_calls;
+ 		return;
+ 	}
+-	fprintf(stderr, "Fatal: Couldn't open either sysfs or procfs directories for accessing EFI variables.\n");
+-	fprintf(stderr, "Try 'modprobe efivars' as root.\n");
+-	exit(1);
++
++	if(!efivars_loaded) {
++		// We should be running as root... So let's try loading
++		// the module ourselves...
++		system("/sbin/modprobe efivars");
++		efivars_loaded++;
++		set_fs_kernel_calls();
++	} else {
++		fprintf(stderr, "Fatal: Couldn't open either sysfs or procfs directories for accessing EFI variables.\n");
++		fprintf(stderr, "Try 'modprobe efivars' as root.\n");
++		exit(1);
++	}
+ }
+ 
+ 

@@ -1,14 +1,14 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
 Version:	0.5.4
-Release:	%mkrel 7
+Release:	8
 License:	GPL
 Group:		System/Kernel and hardware
 URL:		http://domsch.com/linux/ia64/efibootmgr
 Source0:	%{name}-%{version}.tar.bz2
-BuildRequires:	pciutils-devel zlib-devel
-ExclusiveArch:	%{ix86} ia64
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+Patch0:		efibootmgr-0.5.4-autoload-module.patch
+BuildRequires:	pkgconfig(libpci) pkgconfig(zlib)
+ExclusiveArch:	%{ix86} ia64 x86_64
 
 %description
 This is efibootmgr, a Linux user-space application to modify the Intel
@@ -23,11 +23,11 @@ Note: efibootmgr requires that the kernel module efivars be loaded
 prior to use.  `modprobe efivars` should do the trick.
 
 %prep
-
 %setup -q
+%apply_patches
 
 %build
-make
+%make
 
 %install
 rm -rf %{buildroot}
@@ -48,6 +48,10 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Dec 20 2012 Bernhard Rosenkraenzer <bero@lindev.ch> 0.5.4-8
+- Add x86_64 support
+- Autoload the efivars module
+
 * Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 0.5.4-5mdv2011.0
 + Revision: 664126
 - mass rebuild
