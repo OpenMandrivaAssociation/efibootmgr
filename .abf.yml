@@ -1,2 +1,4 @@
+removed_sources:
+  efibootmgr-0.5.4.tar.bz2: 7b2cf3b98acab4fcdb3a15b4459508ce968a0708
 sources:
-  "efibootmgr-0.5.4.tar.bz2": 7b2cf3b98acab4fcdb3a15b4459508ce968a0708
+  efibootmgr-0.6.0.tar.gz: 56e8d8eef7f0b1a7b611079097ee33ec6bbb6500
