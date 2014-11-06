@@ -1,7 +1,7 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
 Version:	0.6.0
-Release:	7
+Release:	8
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://domsch.com/linux/ia64/efibootmgr
@@ -28,6 +28,7 @@ prior to use.  `modprobe efivars` should do the trick.
 %apply_patches
 
 %build
+export CC=gcc
 %make
 
 %install
