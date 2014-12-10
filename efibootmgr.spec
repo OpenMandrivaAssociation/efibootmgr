@@ -1,15 +1,16 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	0.6.0
-Release:	2
+Version:	0.11.0
+Release:	0
 License:	GPLv2
 Group:		System/Kernel and hardware
-Url:		http://domsch.com/linux/ia64/efibootmgr
-Source0:	http://linux.dell.com/efibootmgr/%{name}-%{version}/%{name}-%{version}.tar.gz
-Patch0:		efibootmgr-0.5.4-autoload-module.patch
+Url:		https://github.com/vathpela/efibootmgr
+Source0:	https://github.com/vathpela/efibootmgr/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
 ExclusiveArch:	%{ix86} ia64 x86_64
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pkgconfig(efivar)
+Requires:	efivar
 
 %description
 This is efibootmgr, a Linux user-space application to modify the Intel
@@ -20,12 +21,14 @@ next running boot option, and more.
 Details on the EFI Boot Manager are available from the EFI
 Specification, v1.02 or above, available from <http://developer.intel.com>.
 
-Note: efibootmgr requires that the kernel module efivars be loaded
-prior to use.  `modprobe efivars` should do the trick.
+Note: efibootmgr no longer requires the kernel module efivars to be loaded
+OpenMandriva kernels later than 3.15.15-2 provide a later interface
+This version of efibootmgr requires the support library and utility contained
+in the efivar package.
 
 %prep
 %setup -q
-%apply_patches
+
 
 %build
 %make
