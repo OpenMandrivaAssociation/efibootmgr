@@ -61,7 +61,7 @@ cp -a * .uclibc
 %endif
 
 %build
-CFLAGS="%{optflags} %make
+CFLAGS="%{optflags}" %make
 %if %{with uclibc}
 CC=%{uclibc_cc} CFLAGS="%{uclibc_cflags}" %make -C .uclibc
 %endif
