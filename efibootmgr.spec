@@ -1,12 +1,11 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
 Version:	0.11.0
-Release:	0
+Release:	0.1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/vathpela/efibootmgr
 Source0:	https://github.com/vathpela/efibootmgr/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
-ExclusiveArch:	%{ix86} ia64 x86_64
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar)
