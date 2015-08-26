@@ -1,9 +1,9 @@
-%bcond_without	uclibc
+%bcond_with	uclibc
 
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
 Version:	0.11.0
-Release:	2
+Release:	3
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/vathpela/efibootmgr
