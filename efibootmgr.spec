@@ -2,12 +2,12 @@
 
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	0.11.0
-Release:	3
+Version:	0.12
+Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/vathpela/efibootmgr
-Source0:	https://github.com/vathpela/efibootmgr/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/vathpela/efibootmgr/releases/download/%{name}-%{version}/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar)
@@ -60,7 +60,7 @@ cp -a * .uclibc
 %endif
 
 %build
-CFLAGS="%{optflags}" %make
+CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" %make
 %if %{with uclibc}
 CC=%{uclibc_cc} CFLAGS="%{uclibc_cflags}" %make -C .uclibc
 %endif
