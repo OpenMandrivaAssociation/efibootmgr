@@ -11,6 +11,7 @@ Source0:	https://github.com/vathpela/efibootmgr/releases/download/%{name}-%{vers
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar)
+BuildRequires:	pkgconfig(efiboot)
 %if %{with uclibc}
 BuildRequires:	uClibc-devel
 %endif
