@@ -13,6 +13,7 @@ BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar)
 BuildRequires:	pkgconfig(efiboot)
+BuildRequires:	pkgconfig(popt)
 %if %{with uclibc}
 BuildRequires:	uClibc-devel
 %endif

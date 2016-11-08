@@ -1,6 +1,6 @@
 removed_sources:
-#  efibootmgr-0.12.tar.bz2: eecdacb6eca67bbc318dd03e496f1854214aa79c
-#  efibootmgr-0.14.tar.bz2: 96abfdad3140ed5b9f034668b0f0a951cdafdec1
-#  efibootmgr-14.tar.bz2: 96abfdad3140ed5b9f034668b0f0a951cdafdec1
+  efibootmgr-0.12.tar.bz2: eecdacb6eca67bbc318dd03e496f1854214aa79c
+  efibootmgr-0.14.tar.bz2: 96abfdad3140ed5b9f034668b0f0a951cdafdec1
+  efibootmgr-14.tar.bz2: 96abfdad3140ed5b9f034668b0f0a951cdafdec1
 sources:
   efibootmgr-0.14.tar.bz2: e56a1ec6955db9d29fdf481b0023925521def06a
