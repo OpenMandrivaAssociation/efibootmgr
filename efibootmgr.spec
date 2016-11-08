@@ -1,13 +1,14 @@
 %bcond_with	uclibc
+%define minor %(echo %{version} |cut -d. -f2)
 
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	0.12
+Version:	0.14
 Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
-Url:		https://github.com/vathpela/efibootmgr
-Source0:	https://github.com/vathpela/efibootmgr/releases/download/%{name}-%{version}/%{name}-%{version}.tar.bz2
+Url:		https://github.com/rhinstaller/efibootmgr
+Source0:	https://github.com/rhinstaller/efibootmgr/releases/download/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar)
@@ -55,6 +56,7 @@ in the efivar package.
 
 %prep
 %setup -q
+%apply_patches
 %if %{with uclibc}
 mkdir .uclibc
 cp -a * .uclibc
@@ -67,14 +69,13 @@ CC=%{uclibc_cc} CFLAGS="%{uclibc_cflags}" %make -C .uclibc
 %endif
 
 %install
-install -m755 src/efibootmgr/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
+install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
 %if %{with uclibc}
-install -m755 .uclibc/src/efibootmgr/efibootmgr -D %{buildroot}%{uclibc_root}%{_sbindir}/efibootmgr
+install -m755 .uclibc/src/efibootmgr -D %{buildroot}%{uclibc_root}%{_sbindir}/efibootmgr
 %endif
 
 %files
-%doc AUTHORS COPYING README
-%doc doc/ChangeLog doc/TODO
+%doc AUTHORS COPYING README TODO
 %{_sbindir}/efibootmgr
 
 %if %{with uclibc}
