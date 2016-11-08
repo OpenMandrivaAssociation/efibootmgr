@@ -1,6 +1,6 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	0.14
+Version:	14
 Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
@@ -30,7 +30,8 @@ in the efivar package.
 %setup -q
 
 %build
-CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" %make
+%setup_compile_flags
+%make
 
 %install
 install -m755 src/efibootmgr/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
