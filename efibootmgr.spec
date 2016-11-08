@@ -31,10 +31,10 @@ in the efivar package.
 
 %build
 %setup_compile_flags
-%make
+%make -j1
 
 %install
-install -m755 src/efibootmgr/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
+%makeinstall_std
 
 %files
 %doc AUTHORS README
