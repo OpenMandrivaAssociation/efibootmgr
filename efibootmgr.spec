@@ -1,15 +1,18 @@
+%define minor %(echo %{version} |cut -d. -f2)
+
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	14
+Version:	0.14
 Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/rhinstaller/efibootmgr
-Source0:	https://github.com/rhinstaller/efibootmgr/releases/download/%{name}-%{version}/%{name}-%{version}.tar.bz2
+Source0:	https://github.com/rhinstaller/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.bz2
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar)
 BuildRequires:	pkgconfig(efiboot)
+BuildRequires:	pkgconfig(popt)
 Requires:	efivar
 
 %description
@@ -27,10 +30,11 @@ This version of efibootmgr requires the support library and utility contained
 in the efivar package.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{minor}
 
 %build
 %setup_compile_flags
+export CC=gcc
 %make -j1
 
 %install
