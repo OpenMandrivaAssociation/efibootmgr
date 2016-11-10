@@ -34,12 +34,18 @@ in the efivar package.
 
 %build
 %setup_compile_flags
-export CC=gcc
-%make -j1
+FLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=gcc CXX=g++ %make
+xz src/efibootmgr.8 src/efibootdump.8
 
 %install
-%makeinstall_std
-
+install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
+install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootdump
+install -m644 src/efibootmgr.8.xz -D %{buildroot}%{_mandir}/man8/efibootmgr.8.xz
+install -m644 src/efibootdump.8.xz -D %{buildroot}%{_mandir}/man8/efibootdump.8.xz
 %files
-%doc AUTHORS README
+%doc AUTHORS COPYING README
 %{_sbindir}/efibootmgr
+%{_sbindir}/efibootdump
+%{_mandir}/*/*.?.xz
+
+%doc AUTHORS COPYING README
