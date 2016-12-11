@@ -42,10 +42,9 @@ install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
 install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootdump
 install -m644 src/efibootmgr.8.xz -D %{buildroot}%{_mandir}/man8/efibootmgr.8.xz
 install -m644 src/efibootdump.8.xz -D %{buildroot}%{_mandir}/man8/efibootdump.8.xz
+
 %files
 %doc AUTHORS COPYING README
 %{_sbindir}/efibootmgr
 %{_sbindir}/efibootdump
 %{_mandir}/*/*.?.xz
-
-%doc AUTHORS COPYING README
