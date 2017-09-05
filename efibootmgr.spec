@@ -1,4 +1,5 @@
 %define minor %(echo %{version} |cut -d. -f2)
+%define efidir openmandriva
 
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
@@ -34,7 +35,7 @@ in the efivar package.
 
 %build
 %setup_compile_flags
-FLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=gcc CXX=g++ %make
+CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=gcc CXX=g++ %make EFIDIR=%{efidir}
 xz src/efibootmgr.8 src/efibootdump.8
 
 %install
