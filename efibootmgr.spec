@@ -11,10 +11,10 @@ Url:		https://github.com/rhinstaller/efibootmgr
 Source0:	https://github.com/rhinstaller/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.bz2
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
-BuildRequires:	pkgconfig(efivar)
+BuildRequires:	pkgconfig(efivar) >= 31
 BuildRequires:	pkgconfig(efiboot)
 BuildRequires:	pkgconfig(popt)
-Requires:	efivar
+Requires:	efivar >= 31
 
 %description
 This is efibootmgr, a Linux user-space application to modify the Intel
