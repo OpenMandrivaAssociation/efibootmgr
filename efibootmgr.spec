@@ -1,8 +1,9 @@
 %define minor %(echo %{version} |cut -d. -f2)
+%define efidir openmandriva
 
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	0.14
+Version:	0.15
 Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
@@ -10,10 +11,10 @@ Url:		https://github.com/rhinstaller/efibootmgr
 Source0:	https://github.com/rhinstaller/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.bz2
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
-BuildRequires:	pkgconfig(efivar)
+BuildRequires:	pkgconfig(efivar) >= 31
 BuildRequires:	pkgconfig(efiboot)
 BuildRequires:	pkgconfig(popt)
-Requires:	efivar
+Requires:	efivar >= 31
 
 %description
 This is efibootmgr, a Linux user-space application to modify the Intel
@@ -34,7 +35,7 @@ in the efivar package.
 
 %build
 %setup_compile_flags
-FLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=gcc CXX=g++ %make
+CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=gcc CXX=g++ %make EFIDIR=%{efidir}
 xz src/efibootmgr.8 src/efibootdump.8
 
 %install
