@@ -3,7 +3,7 @@
 
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	0.15
+Version:	0.16
 Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
