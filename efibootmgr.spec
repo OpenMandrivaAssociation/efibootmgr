@@ -8,7 +8,7 @@ Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/rhboot/efibootmgr
-Source0:	https://github.com/rhboot/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.bz2
+Source0:	https://github.com/rhboot/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.gz
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar) >= 31
