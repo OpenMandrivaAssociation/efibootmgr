@@ -4,7 +4,7 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
 Version:	0.17
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/rhboot/efibootmgr
