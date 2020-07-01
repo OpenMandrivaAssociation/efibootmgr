@@ -36,9 +36,15 @@ in the efivar package.
 %autosetup -n %{name}-%{minor}
 
 %build
+# (tpg) define grub loaders name per archs
+%ifarch %{x86_64} riscv64
+%define efiloader grub64
+%else
+%define efiloader grub
+%endif
+
 %set_build_flags
-CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor}
-xz src/efibootmgr.8 src/efibootdump.8
+CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor} EFI_LOADER=%{efiloader}.efi
 
 %install
 install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
@@ -50,4 +56,4 @@ install -m644 src/efibootdump.8.xz -D %{buildroot}%{_mandir}/man8/efibootdump.8.
 %doc AUTHORS COPYING README
 %{_sbindir}/efibootmgr
 %{_sbindir}/efibootdump
-%{_mandir}/*/*.?.xz
+%{_mandir}/*/*.?.*
