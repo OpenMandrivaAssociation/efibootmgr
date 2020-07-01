@@ -44,7 +44,7 @@ in the efivar package.
 %endif
 
 %set_build_flags
-CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor} EFI_LOADER=%{efiloader}.efi
+CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor} EFI_LOADER=%{efiloader}.efi -j1
 
 %install
 install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
