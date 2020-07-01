@@ -35,7 +35,7 @@ This version of efibootmgr requires the support library and utility contained
 in the efivar package.
 
 %prep
-%autosetup -n %{name}-%{minor}
+%autosetup -n %{name}-%{minor} -p1
 
 %build
 # (tpg) define grub loaders name per archs
