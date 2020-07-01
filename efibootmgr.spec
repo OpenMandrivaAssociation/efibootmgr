@@ -53,8 +53,8 @@ CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_bu
 %install
 install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
 install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootdump
-install -m644 src/efibootmgr.8.xz -D %{buildroot}%{_mandir}/man8/efibootmgr.8.xz
-install -m644 src/efibootdump.8.xz -D %{buildroot}%{_mandir}/man8/efibootdump.8.xz
+install -m644 src/efibootmgr.8 -D %{buildroot}%{_mandir}/man8/efibootmgr.8
+install -m644 src/efibootdump.8 -D %{buildroot}%{_mandir}/man8/efibootdump.8
 
 %files
 %doc AUTHORS COPYING README
