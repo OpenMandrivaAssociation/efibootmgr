@@ -15,6 +15,7 @@ Patch1:		0001-Make-sure-PKGS-is-propogated-into-the-submake-for-ma.patch
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar) >= 37
+BuildRequires:	pkgconfig(efiboot)
 BuildRequires:	pkgconfig(popt)
 BuildRequires:	efi-srpm-macros
 Requires:	efivar >= 37
