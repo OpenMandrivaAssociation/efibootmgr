@@ -9,10 +9,12 @@ License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/rhboot/efibootmgr
 Source0:	https://github.com/rhboot/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.gz
+# (tpg) patches from upstream git
+Patch0:		0000-remove-extra-decl.patch
+Patch1:		0001-Make-sure-PKGS-is-propogated-into-the-submake-for-ma.patch
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar) >= 37
-BuildRequires:	pkgconfig(efiboot)
 BuildRequires:	pkgconfig(popt)
 BuildRequires:	efi-srpm-macros
 Requires:	efivar >= 37
@@ -44,7 +46,7 @@ in the efivar package.
 %endif
 
 %set_build_flags
-CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor} EFI_LOADER=%{efiloader}.efi -j1
+CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor} EFI_LOADER=%{efiloader}.efi
 
 %install
 install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
