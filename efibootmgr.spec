@@ -1,5 +1,6 @@
 %define minor %(echo %{version} |cut -d. -f2)
-%global optflags %{optflags} -Oz
+
+%global optflags %{optflags} -Oz -Wno-pointer-sign
 
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
