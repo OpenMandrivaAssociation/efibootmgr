@@ -11,11 +11,11 @@ Url:		https://github.com/rhboot/efibootmgr
 Source0:	https://github.com/rhboot/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.gz
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
-BuildRequires:	pkgconfig(efivar) >= 31
+BuildRequires:	pkgconfig(efivar) >= 37
 BuildRequires:	pkgconfig(efiboot)
 BuildRequires:	pkgconfig(popt)
 BuildRequires:	efi-srpm-macros
-Requires:	efivar >= 31
+Requires:	efivar >= 37
 Requires:	efi-filesystem
 
 %description
@@ -37,7 +37,7 @@ in the efivar package.
 
 %build
 %set_build_flags
-CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor}
+CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor}
 xz src/efibootmgr.8 src/efibootdump.8
 
 %install
