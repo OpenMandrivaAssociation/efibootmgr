@@ -5,7 +5,7 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
 Version:	0.17
-Release:	4
+Release:	5
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/rhboot/efibootmgr
@@ -65,4 +65,4 @@ install -m644 src/efibootdump.8 -D %{buildroot}%{_mandir}/man8/efibootdump.8
 %doc AUTHORS COPYING README
 %{_sbindir}/efibootmgr
 %{_sbindir}/efibootdump
-%{_mandir}/*/*.?.*
+%doc %{_mandir}/*/*.?.*
