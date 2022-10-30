@@ -4,19 +4,12 @@
 
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
-Version:	0.17
-Release:	6
+Version:	0.18
+Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/rhboot/efibootmgr
-Source0:	https://github.com/rhboot/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.gz
-# (tpg) patches from upstream git
-Patch0:		0000-remove-extra-decl.patch
-Patch1:		0001-Make-sure-PKGS-is-propogated-into-the-submake-for-ma.patch
-Patch2:		0000-Get-rid-of-a-memory-leak-of-deleted-boot-entries.patch
-# (tpg) patch from Fedora
-Patch100:	efibootmgr-16-efidp_format_device_path-argfix.patch
-
+Source0:	https://github.com/rhboot/efibootmgr/releases/download/%{name}-%{minor}/%{name}-%{minor}.tar.bz2
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(efivar) >= 37
