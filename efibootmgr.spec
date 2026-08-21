@@ -5,7 +5,7 @@
 Summary:	Interact with the EFI Boot Manager
 Name:		efibootmgr
 Version:	18
-Release:	2
+Release:	3
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		https://github.com/rhboot/efibootmgr
@@ -46,7 +46,7 @@ in the efivar package.
 %endif
 
 %set_build_flags
-CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC=%{__cc} CXX=%{__cxx} %make_build EFIDIR=%{efi_vendor} EFI_LOADER=%{efiloader}.efi
+CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}" CC="%{__cc}" CXX="%{__cxx}" %make_build EFIDIR=%{efi_vendor} EFI_LOADER=%{efiloader}.efi
 
 %install
 install -m755 src/efibootmgr -D %{buildroot}%{_sbindir}/efibootmgr
